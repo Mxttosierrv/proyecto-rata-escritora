@@ -1,0 +1,226 @@
+:root {
+    /* colores modo claro */
+    --color-azucar: #FCF8F0;
+    --color-bisque: #E2D9CD;
+    --color-trigo: #b6a593;
+    --color-pistacho: #B5BDAC;
+    --color-mocha: #6B5B4D;
+    --color-roble-espresso: #392E26;
+
+    /* colores modo oscuro */
+    --color-azul-marino: #0B1013;
+    --color-verde-pantano: #1B2020;
+    --color-verde-oliva: #34352F;
+    --color-beige-apagado: #AFA183;
+    --color-cafe-latte: #7E6B54;
+
+    /* colores de apoyo */
+    --color-sombra-modo-claro: rgba(0,0,0,0.3);
+    --color-sombra-modo-oscuro: rgba(255, 255, 255, 0.3);
+    --color-borde-modo-claro: #CED4DA;
+    --color-borde-modo-oscuro: #414346;
+}
+
+
+/*--- CONFIGURACION DE COLORES MODO CLARO Y OSCURO ---*/
+
+/* ## modo claro */
+body.modo-claro {
+    background-color: var(--color-bisque);
+}
+
+#navbarPrincipal.modo-claro {
+    background-color: var(--color-azucar);
+}
+#elementosNavbarPrincipal.modo-claro .nav-item:hover {
+    background-color: var(--color-bisque);
+}
+
+#btnBuscar.modo-claro {
+    background-color: var(--color-trigo);
+    border-color: var(--color-borde-modo-claro);
+}
+#btnBuscar.modo-claro:hover {
+    background-color: var(--color-mocha);
+}
+
+#iUsuario.modo-claro, 
+#iOpcionesUsuario.modo-claro, 
+#iBuscar.modo-claro {
+    color: var(--color-azucar);
+}
+
+#btnMenuUsuario.modo-claro {
+    background-color: var(--color-trigo);
+}
+
+#menuUsuario.modo-claro:hover,
+#menuUsuario.modo-claro.show,
+#menuUsuario.modo-claro .dropdown-menu {
+    box-shadow: 0px 4px 10px 0px var(--color-sombra-modo-claro);
+}
+#menuUsuario.modo-claro .dropdown-item:hover {
+    background-color: var(--color-bisque);
+}
+
+
+/* ## modo oscuro */
+body.modo-oscuro {
+    background-color: var(--color-azul-marino);
+    color: white;
+}
+
+#navbarPrincipal.modo-oscuro {
+    background-color: var(--color-verde-pantano);
+}
+#elementosNavbarPrincipal.modo-oscuro .nav-link {
+    color: gray;
+}
+#elementosNavbarPrincipal.modo-oscuro .nav-item:hover {
+    background-color: var(--color-verde-oliva);
+}
+#elementosNavbarPrincipal.modo-oscuro .nav-link:hover {
+    color: white;
+}
+
+#txtBarraBusqueda.modo-oscuro {
+    background-color: var(--color-azul-marino);
+    border-color: var(--color-borde-modo-oscuro);
+    color: white;
+}
+#txtBarraBusqueda.modo-oscuro::placeholder {
+    color: gray;
+}
+
+#btnBuscar.modo-oscuro {
+    background-color: var(--color-verde-oliva);
+    border-color: var(--color-borde-modo-oscuro);
+}
+#btnBuscar.modo-oscuro:hover {
+    background-color: var(--color-mocha);
+}
+
+#iUsuario.modo-oscuro, 
+#iOpcionesUsuario.modo-oscuro, 
+#iBuscar.modo-oscuro {
+    color: var(--color-bisque);
+}
+
+#btnMenuUsuario.modo-oscuro {
+    background-color: var(--color-verde-oliva);
+}
+
+#menuUsuario.modo-oscuro:hover,
+#menuUsuario.modo-oscuro.show,
+#menuUsuario.modo-oscuro .dropdown-menu {
+    box-shadow: 0px 4px 10px 0px var(--color-sombra-modo-oscuro);
+}
+#menuUsuario.modo-oscuro .dropdown-menu {
+    background-color: var(--color-azul-marino);
+    color: white;
+}
+#menuUsuario.modo-oscuro .dropdown-item {
+    color: white;
+}
+#menuUsuario.modo-oscuro .dropdown-divider {
+    background-color: gray;
+}
+#menuUsuario.modo-oscuro .dropdown-item:hover {
+    background-color: var(--color-verde-oliva);
+}
+
+
+
+/*--- CONFIGURAR NAVBAR ---*/
+#elementosNavbarPrincipal .nav-item {
+    margin-left: 5px;
+    text-align: center;
+    width: 85px;
+    height: 100%;
+    border-radius: 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+#elementosNavbarPrincipal .nav-item:hover {
+    border-radius: 15px;
+}
+
+#logoPagina {
+    margin-left: 50px;
+}
+
+#grupoBarraBusqueda {
+    margin-right: 100px;
+}
+#txtBarraBusqueda {
+    width: 300px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#btnBuscar {
+    transition: color 0.3s, background-color 0.3s;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#iBuscar {
+    font-size: 1.2rem;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+#iUsuario, #iOpcionesUsuario {
+    font-size: 2rem;
+}
+#iUsuario {
+    margin-left: 5px;
+}
+
+#btnMenuUsuario, #menuUsuario {
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+#btnMenuUsuario {
+    padding: 0px 12px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+#menuUsuario {
+    margin-right: 50px;
+    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+#menuUsuario .dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    transform: translateX(-50%); 
+    margin-top: 5px;
+}
+#menuUsuario .dropdown-toggle::after {
+    display: none;
+}
+
+.switchModoOscuroYClaro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Espacio entre iconos y el switch */
+}
+.switchModoOscuroYClaro .form-check-input {
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+}
+#iSol {
+    font-size: 1.3rem;
+}
+#iLuna {
+    font-size: 1.2rem;
+}
+
+/*--- CONFIGURAR CONTAINER INICIO ---*/
+#containerInicio {
+    height: 400px;
+    margin-top: 100px;
+}
