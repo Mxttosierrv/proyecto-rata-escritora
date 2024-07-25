@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Vistas generales
 def index(request):
     return render(request, 'index.html')
 
@@ -15,3 +15,8 @@ def blog(request):
 
 def sobre_mi(request):
     return render(request, 'sobre_mi.html')
+
+
+# Inicio de sesión y registro de usuario
+def login(request):
+    return render(request, 'registration/login.html')

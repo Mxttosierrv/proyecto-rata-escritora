@@ -63,6 +63,10 @@ body.modo-claro {
     background-color: var(--color-bisque);
 }
 
+#iLogin.modo-claro {
+    color: var(--color-roble-espresso);
+}
+
 
 /* ## modo oscuro */
 body.modo-oscuro {
@@ -102,7 +106,8 @@ body.modo-oscuro {
 
 #iUsuario.modo-oscuro, 
 #iOpcionesUsuario.modo-oscuro, 
-#iBuscar.modo-oscuro {
+#iBuscar.modo-oscuro,
+#iLogin.modo-oscuro {
     color: var(--color-bisque);
 }
 
@@ -127,6 +132,13 @@ body.modo-oscuro {
 }
 #menuUsuario.modo-oscuro .dropdown-item:hover {
     background-color: var(--color-verde-oliva);
+}
+
+
+/* configuraciones generales */
+::placeholder, 
+#lblPreguntaIniciarSesion, #lblPreguntaRegistroUsuario { /* Estilo para el placeholder de todos los inputs */
+    font-style: italic; /* Hacer el texto en cursiva */
 }
 
 
@@ -223,4 +235,43 @@ body.modo-oscuro {
 #containerInicio {
     height: 400px;
     margin-top: 100px;
+}
+
+
+/*--- CONFIGURAR ELEMENTOSLOGIN.HTML ---*/
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.login-logo {
+    display: flex;
+    justify-content: center;
+}
+
+#iLogin {
+    font-size: 5rem;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+#iLogin, #loginLogo {
+    border: none;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#lblIniciarSesion {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
