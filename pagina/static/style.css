@@ -56,15 +56,12 @@ body.modo-claro {
 
 #menuUsuario.modo-claro:hover,
 #menuUsuario.modo-claro.show,
-#menuUsuario.modo-claro .dropdown-menu {
+#menuUsuario.modo-claro .dropdown-menu,
+.login-card.modo-claro {
     box-shadow: 0px 4px 10px 0px var(--color-sombra-modo-claro);
 }
 #menuUsuario.modo-claro .dropdown-item:hover {
     background-color: var(--color-bisque);
-}
-
-#iLogin.modo-claro {
-    color: var(--color-roble-espresso);
 }
 
 
@@ -87,12 +84,16 @@ body.modo-oscuro {
     color: white;
 }
 
-#txtBarraBusqueda.modo-oscuro {
+#txtBarraBusqueda.modo-oscuro,
+#txtCorreoUsuario.modo-oscuro,
+#txtContrasenaUsuario.modo-oscuro {
     background-color: var(--color-azul-marino);
     border-color: var(--color-borde-modo-oscuro);
     color: white;
 }
-#txtBarraBusqueda.modo-oscuro::placeholder {
+#txtBarraBusqueda.modo-oscuro::placeholder,
+#txtCorreoUsuario.modo-oscuro::placeholder,
+#txtContrasenaUsuario.modo-oscuro::placeholder {
     color: gray;
 }
 
@@ -106,8 +107,7 @@ body.modo-oscuro {
 
 #iUsuario.modo-oscuro, 
 #iOpcionesUsuario.modo-oscuro, 
-#iBuscar.modo-oscuro,
-#iLogin.modo-oscuro {
+#iBuscar.modo-oscuro {
     color: var(--color-bisque);
 }
 
@@ -117,7 +117,8 @@ body.modo-oscuro {
 
 #menuUsuario.modo-oscuro:hover,
 #menuUsuario.modo-oscuro.show,
-#menuUsuario.modo-oscuro .dropdown-menu {
+#menuUsuario.modo-oscuro .dropdown-menu,
+.login-card.modo-oscuro {
     box-shadow: 0px 4px 10px 0px var(--color-sombra-modo-oscuro);
 }
 #menuUsuario.modo-oscuro .dropdown-menu {
@@ -134,6 +135,11 @@ body.modo-oscuro {
     background-color: var(--color-verde-oliva);
 }
 
+.login-card.modo-oscuro {
+    background-color: var(--color-verde-pantano);
+    color: white;
+}
+
 
 /* configuraciones generales */
 ::placeholder, 
@@ -141,6 +147,9 @@ body.modo-oscuro {
     font-style: italic; /* Hacer el texto en cursiva */
 }
 
+.cerrar-sesion:hover {
+    background-color: #B71C1C !important;
+}
 
 
 /*--- CONFIGURAR NAVBAR ---*/
@@ -249,7 +258,6 @@ body.modo-oscuro {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 .login-logo {
@@ -264,10 +272,7 @@ body.modo-oscuro {
 
 #iLogin, #loginLogo {
     border: none;
-    border-top-right-radius: 100px;
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 100px;
+    border-radius: 100px;
 }
 
 #lblIniciarSesion {

@@ -22,7 +22,7 @@
 </head>
 <body class="modo-claro">
     <div class="container login-container">
-        <div class="card login-card">
+        <div class="card login-card modo-claro">
             <div class="login-logo">
                 <button class="btn" id="loginLogo">
                     <a href="{% url 'inicio' %}">
@@ -31,14 +31,18 @@
                 </button>
             </div>
             <label class="form-label" id="lblIniciarSesion"> <h4>Iniciar sesión</h4></label>
-            <form>
+            <form action="" method="post">
+                
+                {% csrf_token %}
+
                 <div class="mb-3">
                     <label for="email" class="form-label">
                         Correo electrónico
                     </label>
                     <input 
-                        type="email" 
-                        class="form-control" 
+                        type="email"
+                        name="username"
+                        class="form-control modo-claro" 
                         id="txtCorreoUsuario" 
                         placeholder="Ingresa tu correo"
                     >
@@ -48,8 +52,9 @@
                         Contraseña
                     </label>
                     <input 
-                        type="password" 
-                        class="form-control" 
+                        type="password"
+                        name="password"
+                        class="form-control modo-claro" 
                         id="txtContrasenaUsuario" 
                         placeholder="Ingresa tu contraseña"
                     >
@@ -82,7 +87,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             function aplicarModo(modo) {
                 const elementos = [
-                    body
+                    body, loginCard, txtCorreoUsuario, txtContrasenaUsuario
                 ];
                 
                 elementos.forEach(elemento => {
@@ -94,6 +99,9 @@
             }
 
             const body = document.body;
+            const loginCard = document.getElementsByClassName('login-card')[0];
+            const txtCorreoUsuario = document.getElementById('txtCorreoUsuario');
+            const txtContrasenaUsuario = document.getElementById('txtContrasenaUsuario');
 
             // Verificar el estado del modo oscuro almacenado en localStorage
             if (localStorage.getItem('modoOscuro') === 'true') {

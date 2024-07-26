@@ -83,8 +83,14 @@
                         <i class="bi bi-person-circle modo-claro" id="iUsuario"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'login'%}">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+                            <li><a class="dropdown-item cerrar-sesion" href="{% url 'exit'%}">Cerrar sesión</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="{% url 'login'%}">Iniciar sesión</a></li>
+                            <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        {% endif %}
+
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <div class="switchModoOscuroYClaro">

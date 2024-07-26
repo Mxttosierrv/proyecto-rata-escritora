@@ -33,6 +33,7 @@ urlpatterns = [
 
     # Inicio de sesión y registro de usuario
     path('login/', login, name='login'),
+    path('logout/', exit, name='exit'),
     path('accounts/', include('django.contrib.auth.urls'),)
 ]
 
