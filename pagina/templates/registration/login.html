@@ -26,7 +26,11 @@
             <div class="login-logo">
                 <button class="btn" id="loginLogo">
                     <a href="{% url 'inicio' %}">
-                        <i class="bi bi-person-circle modo-claro" id="iLogin"></i>
+                        <img 
+                            class="img-fluid" 
+                            id="iLogin" 
+                            src="{% static 'images/iconos/rata-escritora-icono-sin-texto.png' %}"
+                        >
                     </a>
                 </button>
             </div>
@@ -121,6 +125,5 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"
     ></script>
-    <script src="{% static '/js/navbarPrincipal.js' %}"></script>
 </body>
 </html>

@@ -3,14 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
     function aplicarModo(modo) {
         const elementos = [
             body, navbar, elementosNavbar, btnBuscar,
-            iBuscar, iUsuario, iOpcionesUsuario, btnMenuUsuario, menuUsuario,
-            txtBarraBusqueda
+            iBuscar, iUsuario, iOpcionesUsuario, 
+            btnMenuUsuario, menuUsuario, txtBarraBusqueda
         ];
-        
+
         elementos.forEach(elemento => {
-            elemento.classList.remove('modo-claro', 'modo-oscuro');
-            elemento.classList.add(modo);
+            if (elemento) {  // Verificar que el elemento no sea null
+                elemento.classList.remove('modo-claro', 'modo-oscuro');
+                elemento.classList.add(modo);
+            }
         });
+
+        if (modo === 'modo-oscuro') {
+            iLogoPagina.src = iLogoPagina.getAttribute('data-logo-oscuro');
+        } else {
+            iLogoPagina.src = iLogoPagina.getAttribute('data-logo-claro');
+        }
 
         localStorage.setItem('modoOscuro', modo === 'modo-oscuro');
     }
@@ -20,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.getElementById('navbarPrincipal');
     const elementosNavbar = document.getElementById('elementosNavbarPrincipal');
     const btnBuscar = document.getElementById('btnBuscar');
+    const iLogoPagina = document.getElementById('iLogoPagina');
     const iBuscar = document.getElementById('iBuscar');
     const iUsuario = document.getElementById('iUsuario');
     const iOpcionesUsuario = document.getElementById('iOpcionesUsuario');

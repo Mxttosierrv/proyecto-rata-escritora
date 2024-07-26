@@ -149,6 +149,7 @@ body.modo-oscuro {
 
 .cerrar-sesion:hover {
     background-color: #B71C1C !important;
+    color: white;
 }
 
 
@@ -167,6 +168,10 @@ body.modo-oscuro {
 
 #logoPagina {
     margin-left: 50px;
+}
+#iLogoPagina {
+    height: 80px;
+    border: 100px;
 }
 
 #grupoBarraBusqueda {
@@ -243,7 +248,7 @@ body.modo-oscuro {
 /*--- CONFIGURAR CONTAINER INICIO ---*/
 #containerInicio {
     height: 400px;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 
@@ -266,7 +271,7 @@ body.modo-oscuro {
 }
 
 #iLogin {
-    font-size: 5rem;
+    height: 120px;
     transition: color 0.3s, background-color 0.3s;
 }
 

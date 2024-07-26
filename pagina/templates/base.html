@@ -25,7 +25,15 @@
     <nav class="navbar navbar-expand-lg fixed-top modo-claro" id="navbarPrincipal">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="{% url 'inicio'%}" id="logoPagina">Logo</a>
+            <a class="navbar-brand" href="{% url 'inicio'%}" id="logoPagina">
+                <img 
+                    class="img-fluid" 
+                    id="iLogoPagina"
+                    data-logo-claro="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                    data-logo-oscuro="{% static 'images/iconos/rata-escritora-icono-texto-modo-oscuro.png' %}"
+                    src="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                >
+            </a>
 
             <button 
                 class="navbar-toggler" 
