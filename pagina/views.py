@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import *
 
 
 # Vistas generales
@@ -21,19 +22,29 @@ def sobre_mi(request):
 
 
 # Inicio de sesión y registro de usuario
-def login(request):
+def user_login(request):
+    return render(request, 'registration/login.html')
+
+def user_register(request):
+    data = {
+        'form': CustomUserCreationForm() 
+    }
+
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        user_creation_form = CustomUserCreationForm(data=request.POST)
+
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+
+            user = authenticate(
+                username=user_creation_form.cleaned_data['username'],
+                password=user_creation_form.cleaned_data['password1']
+            )
             login(request, user)
+            
             return redirect('inicio')
-        else:
-            # Return an 'invalid login' error message.
-            return render(request, 'registration/login.html', {'error': 'Invalid login credentials'})
-    else:
-        return render(request, 'registration/login.html')
+        
+    return render(request, 'registration/register.html', data)
 
 def exit(request):
     logout(request)

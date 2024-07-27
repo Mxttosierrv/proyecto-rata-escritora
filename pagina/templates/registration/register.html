@@ -35,12 +35,14 @@
                     </a>
                 </button>
             </div>
+
             <label 
                 class="form-label" id="lblIniciarSesion"> 
                 <h4>
-                    Iniciar sesión
+                    Crear usuario
                 </h4>
             </label>
+
             <form action="" method="post">
                 
                 {% csrf_token %}
@@ -49,12 +51,12 @@
 
                 <div class="mb-3 text-center">
                     <label class="form-label" id="lblPreguntaRegistroUsuario">
-                        ¿Aún no tienes cuenta?
+                        ¿Ya tienes una cuenta?
                         <a 
-                            href="{% url 'register' %}" 
+                            href="{% url 'login' %}" 
                             class="link-primary" 
                             >
-                            Registrate aquí
+                            Inicia sesión aquí
                         </a>
                     </label>
                 </div>
@@ -63,7 +65,7 @@
                         type="submit" 
                         class="btn btn-primary"
                         >
-                        Iniciar sesión
+                        Registrarse
                     </button>
                 </div>
             </form>

@@ -32,7 +32,8 @@ urlpatterns = [
     path('sobre-mi/', sobre_mi, name='sobre-mi'),
 
     # Inicio de sesión y registro de usuario
-    path('login/', login, name='login'),
+    path('login/', user_login, name='login'),
+    path('register/', user_register, name='register'),
     path('logout/', exit, name='exit'),
     path('accounts/', include('django.contrib.auth.urls'),)
 ]

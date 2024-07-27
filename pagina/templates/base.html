@@ -96,7 +96,7 @@
                             <li><a class="dropdown-item cerrar-sesion" href="{% url 'exit'%}">Cerrar sesión</a></li>
                         {% else %}
                             <li><a class="dropdown-item" href="{% url 'login'%}">Iniciar sesión</a></li>
-                            <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="{% url 'register'%}">Registrarse</a></li>
                         {% endif %}
 
                         <li><hr class="dropdown-divider"></li>
