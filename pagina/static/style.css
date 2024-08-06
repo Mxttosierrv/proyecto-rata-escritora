@@ -15,6 +15,7 @@
     --color-cafe-latte: #7E6B54;
 
     /* colores de apoyo */
+    --color-gris-claro:  #F5F6F7;
     --color-sombra-modo-claro: rgba(0,0,0,0.3);
     --color-sombra-modo-oscuro: rgba(255, 255, 255, 0.3);
     --color-borde-modo-claro: #CED4DA;
@@ -64,6 +65,11 @@ body.modo-claro {
     background-color: var(--color-bisque);
 }
 
+#id_email.modo-claro, #id_username.modo-claro,
+#id_password.modo-claro, #id_password1.modo-claro, #id_password2.modo-claro {
+    background-color: var(--color-gris-claro);
+}
+
 
 /* ## modo oscuro */
 body.modo-oscuro {
@@ -86,15 +92,24 @@ body.modo-oscuro {
 
 #txtBarraBusqueda.modo-oscuro,
 #txtCorreoUsuario.modo-oscuro,
-#txtContrasenaUsuario.modo-oscuro {
+#txtContrasenaUsuario.modo-oscuro,
+#id_email.modo-oscuro, #id_username.modo-oscuro,
+#id_password.modo-oscuro, #id_password1.modo-oscuro, #id_password2.modo-oscuro {
     background-color: var(--color-azul-marino);
     border-color: var(--color-borde-modo-oscuro);
     color: white;
 }
 #txtBarraBusqueda.modo-oscuro::placeholder,
 #txtCorreoUsuario.modo-oscuro::placeholder,
-#txtContrasenaUsuario.modo-oscuro::placeholder {
+#txtContrasenaUsuario.modo-oscuro::placeholder,
+#id_email.modo-oscuro::placeholder, #id_username.modo-oscuro::placeholder,
+#id_password.modo-oscuro::placeholder, #id_password1.modo-oscuro::placeholder, #id_password2.modo-oscuro::placeholder {
     color: gray;
+}
+#lblRequisitosNombreUsuario.modo-oscuro,
+#lblContrasenna1.modo-oscuro, #lblContrasenna2.modo-oscuro,
+#lblConfirmarContrasenna.modo-oscuro {
+    color: lightgray;
 }
 
 #btnBuscar.modo-oscuro {

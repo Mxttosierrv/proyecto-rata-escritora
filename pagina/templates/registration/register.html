@@ -23,61 +23,129 @@
 </head>
 <body class="modo-claro">
     <div class="container login-container">
-        <div class="card login-card modo-claro">
-            <div class="login-logo">
-                <button class="btn" id="loginLogo">
-                    <a href="{% url 'inicio' %}">
+        <div class="card login-card modo-claro" style="max-width: 900px; height: 530px; margin: auto;">
+            <div class="row g-0">
+
+                <div class="col-md-4 text-center my-auto">
+                    <a href="{% url 'inicio'%}" id="logoPagina">
                         <img 
                             class="img-fluid" 
-                            id="iLogin" 
-                            src="{% static 'images/iconos/rata-escritora-icono-sin-texto.png' %}"
+                            id="iLogoPagina"
+                            data-logo-claro="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                            data-logo-oscuro="{% static 'images/iconos/rata-escritora-icono-texto-modo-oscuro.png' %}"
+                            src="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                            style="width: 220px; height: 220px; margin-right: 50px;"
                         >
                     </a>
-                </button>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <label class="form-label" id="lblIniciarSesion"> 
+                            <h4>Crear usuario</h4>
+                        </label>
+
+                        <form action="" method="post">
+
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <!--
+                                <label for="id_username" class="form-label">Nombre de usuario:</label>
+                                -->
+                                <input 
+                                    type="text" 
+                                    name="username" 
+                                    class="form-control modo-claro" 
+                                    id="id_username" 
+                                    placeholder="Ingresa tu nombre de usuario"
+                                >
+                                <small class="form-text text-muted">
+                                    <lbl class="modo-claro" id="lblRequisitosNombreUsuario">
+                                        Requerido. 150 caracteres como máximo. Únicamente letras, dígitos y @/./+/-/_
+                                    </lbl> 
+                                </small>
+                            </div>
+
+                            <div class="mb-3">
+                                <!--
+                                <label for="id_email" class="form-label">Correo electrónico:</label>
+                                -->
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    class="form-control modo-claro" 
+                                    id="id_email" 
+                                    placeholder="Ingresa tu correo">
+                            </div>
+
+                            <div class="mb-3">
+                                <!--
+                                <label for="id_password1" class="form-label">Crear contraseña:</label>
+                                -->
+                                <input 
+                                    type="password" 
+                                    name="password1" 
+                                    class="form-control modo-claro" 
+                                    id="id_password1" 
+                                    placeholder="Crear contraseña">
+                                <small class="form-text text-muted">
+                                    <ul>
+                                        <li class="modo-claro" id="lblContrasenna1">
+                                            Su contraseña debe contener al menos 8 caracteres.
+                                        </li>
+                                        <li class="modo-claro" id="lblContrasenna2">
+                                            Su contraseña no puede ser completamente numérica.
+                                        </li>
+                                    </ul>
+                                </small>
+                            </div>
+
+                            <div class="mb-3">
+                                <!--
+                                <label for="id_password2" class="form-label">Confirma tu contraseña:</label>
+                                -->
+                                <input 
+                                    type="password" 
+                                    name="password2" 
+                                    class="form-control modo-claro" 
+                                    id="id_password2" 
+                                    placeholder="Confirma tu contraseña">
+                                <small class="form-text text-muted">
+                                    <lbl class="modo-claro" id="lblConfirmarContrasenna">
+                                        Para verificar, introduzca la misma contraseña anterior.
+                                    </lbl>
+                                </small>
+                            </div>
+
+                            <div class="mb-3 text-center">
+                                <label class="form-label" id="lblPreguntaRegistroUsuario">
+                                    ¿Ya tienes una cuenta?
+                                    <a href="{% url 'login' %}" class="link-primary">Inicia sesión aquí</a>
+                                </label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <label 
-                class="form-label" id="lblIniciarSesion"> 
-                <h4>
-                    Crear usuario
-                </h4>
-            </label>
-
-            <form action="" method="post">
-                
-                {% csrf_token %}
-
-                {{ form | crispy }}
-
-                <div class="mb-3 text-center">
-                    <label class="form-label" id="lblPreguntaRegistroUsuario">
-                        ¿Ya tienes una cuenta?
-                        <a 
-                            href="{% url 'login' %}" 
-                            class="link-primary" 
-                            >
-                            Inicia sesión aquí
-                        </a>
-                    </label>
-                </div>
-                <div class="d-grid gap-2">
-                    <button 
-                        type="submit" 
-                        class="btn btn-primary"
-                        >
-                        Registrarse
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
+
 
     <!-- importaciones de código -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             function aplicarModo(modo) {
                 const elementos = [
-                    body, loginCard, txtCorreoUsuario, txtContrasenaUsuario
+                    body, loginCard, txtCorreoUsuario, txtNombreUsuario, 
+                    txtContrasenaUsuario1, txtContrasenaUsuario2, 
+                    lblRequisitosNombreUsuario, 
+                    lblContrasenaUsuario1, lblContrasenaUsuario2, lblConfirmarContrasenna
                 ];
                 
                 elementos.forEach(elemento => {
@@ -85,13 +153,27 @@
                     elemento.classList.add(modo);
                 });
 
+                if (modo === 'modo-oscuro') {
+                    iLogoPagina.src = iLogoPagina.getAttribute('data-logo-oscuro');
+                } else {
+                    iLogoPagina.src = iLogoPagina.getAttribute('data-logo-claro');
+                }
+
                 localStorage.setItem('modoOscuro', modo === 'modo-oscuro');
             }
 
             const body = document.body;
             const loginCard = document.getElementsByClassName('login-card')[0];
-            const txtCorreoUsuario = document.getElementById('txtCorreoUsuario');
-            const txtContrasenaUsuario = document.getElementById('txtContrasenaUsuario');
+            const iLogoPagina = document.getElementById('iLogoPagina');
+            const txtCorreoUsuario = document.getElementById('id_email');
+            const txtNombreUsuario = document.getElementById('id_username');
+            const txtContrasenaUsuario1 = document.getElementById('id_password1');
+            const txtContrasenaUsuario2 = document.getElementById('id_password2');
+            const lblRequisitosNombreUsuario = document.getElementById('lblRequisitosNombreUsuario');
+            const lblContrasenaUsuario1 = document.getElementById('lblContrasenna1');
+            const lblContrasenaUsuario2 = document.getElementById('lblContrasenna2');
+            const lblConfirmarContrasenna = document.getElementById('lblConfirmarContrasenna');
+
 
             // Verificar el estado del modo oscuro almacenado en localStorage
             if (localStorage.getItem('modoOscuro') === 'true') {

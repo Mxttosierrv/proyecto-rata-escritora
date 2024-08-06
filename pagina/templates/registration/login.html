@@ -23,50 +23,82 @@
 </head>
 <body class="modo-claro">
     <div class="container login-container">
-        <div class="card login-card modo-claro">
-            <div class="login-logo">
-                <button class="btn" id="loginLogo">
-                    <a href="{% url 'inicio' %}">
+        <div class="card login-card modo-claro" style="max-width: 900px; margin: auto;">
+            <div class="row g-0">
+
+                <div class="col-md-4 text-center my-auto">
+                    <a href="{% url 'inicio'%}" id="logoPagina">
                         <img 
                             class="img-fluid" 
-                            id="iLogin" 
-                            src="{% static 'images/iconos/rata-escritora-icono-sin-texto.png' %}"
+                            id="iLogoPagina"
+                            data-logo-claro="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                            data-logo-oscuro="{% static 'images/iconos/rata-escritora-icono-texto-modo-oscuro.png' %}"
+                            src="{% static 'images/iconos/rata-escritora-icono-texto-modo-claro.png' %}"
+                            style="width: 220px; height: 220px; margin-right: 50px;"
                         >
                     </a>
-                </button>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+
+                        <label class="form-label" id="lblIniciarSesion"> 
+                            <h4>Iniciar sesión</h4>
+                        </label>
+                        
+                        <form action="" method="post">
+
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <!--
+                                <label 
+                                    for="id_username" class="form-label">
+                                    Ingresa tu nombre de usuario o correo electrónico:
+                                </label>
+                                -->
+                                <input
+                                    type="text" 
+                                    name="username" 
+                                    class="form-control modo-claro" 
+                                    id="id_username" 
+                                    placeholder="Nombre de usuario o correo electrónico">
+                            </div>
+
+                            <div class="mb-3">
+                                <!--
+                                <label for="id_password" class="form-label">Contraseña:</label>
+                                -->
+                                <input 
+                                    type="password" 
+                                    name="password" 
+                                    class="form-control modo-claro" 
+                                    id="id_password" 
+                                    placeholder="Ingresa tu contraseña">
+                            </div>
+
+                            <div class="mb-3 text-center">
+                                <label class="form-label" id="lblPreguntaRegistroUsuario">
+                                    ¿Aún no tienes cuenta?
+                                    <a 
+                                        href="{% url 'register' %}" 
+                                        class="link-primary">
+                                        Regístrate aquí
+                                    </a>
+                                </label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary">
+                                    Iniciar sesión
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <label 
-                class="form-label" id="lblIniciarSesion"> 
-                <h4>
-                    Iniciar sesión
-                </h4>
-            </label>
-            <form action="" method="post">
-                
-                {% csrf_token %}
-
-                {{ form | crispy }}
-
-                <div class="mb-3 text-center">
-                    <label class="form-label" id="lblPreguntaRegistroUsuario">
-                        ¿Aún no tienes cuenta?
-                        <a 
-                            href="{% url 'register' %}" 
-                            class="link-primary" 
-                            >
-                            Registrate aquí
-                        </a>
-                    </label>
-                </div>
-                <div class="d-grid gap-2">
-                    <button 
-                        type="submit" 
-                        class="btn btn-primary"
-                        >
-                        Iniciar sesión
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -83,13 +115,20 @@
                     elemento.classList.add(modo);
                 });
 
+                if (modo === 'modo-oscuro') {
+                    iLogoPagina.src = iLogoPagina.getAttribute('data-logo-oscuro');
+                } else {
+                    iLogoPagina.src = iLogoPagina.getAttribute('data-logo-claro');
+                }
+
                 localStorage.setItem('modoOscuro', modo === 'modo-oscuro');
             }
 
             const body = document.body;
             const loginCard = document.getElementsByClassName('login-card')[0];
-            const txtCorreoUsuario = document.getElementById('txtCorreoUsuario');
-            const txtContrasenaUsuario = document.getElementById('txtContrasenaUsuario');
+            const iLogoPagina = document.getElementById('iLogoPagina');
+            const txtCorreoUsuario = document.getElementById('id_username');
+            const txtContrasenaUsuario = document.getElementById('id_password');
 
             // Verificar el estado del modo oscuro almacenado en localStorage
             if (localStorage.getItem('modoOscuro') === 'true') {
