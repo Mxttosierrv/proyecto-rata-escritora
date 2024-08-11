@@ -26,7 +26,7 @@ urlpatterns = [
 
     # Vistas generales
     path('', index, name='inicio'),
-    path('cuentos/', cuentos, name='cuentos'),
+    path('historias/', historias, name='historias'),
     path('podcast/', podcast, name='podcast'),
     path('blog/', blog, name='blog'),
     path('sobre-mi/', sobre_mi, name='sobre-mi'),
@@ -35,7 +35,10 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('register/', user_register, name='register'),
     path('logout/', exit, name='exit'),
-    path('accounts/', include('django.contrib.auth.urls'),)
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    # Vistas de perfil de usuario
+    path('perfil/', perfil_usuario, name='perfil_usuario')
 ]
 
 if settings.DEBUG:

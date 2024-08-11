@@ -33,8 +33,10 @@ body.modo-claro {
 #navbarPrincipal.modo-claro {
     background-color: var(--color-azucar);
 }
-#elementosNavbarPrincipal.modo-claro .nav-item:hover {
+#elementosNavbarPrincipal.modo-claro .nav-item:hover,
+#elementosNavbarPrincipal.modo-claro .nav-link.active {
     background-color: var(--color-bisque);
+    border-radius: 15px;
 }
 
 #btnBuscar.modo-claro {
@@ -83,10 +85,13 @@ body.modo-oscuro {
 #elementosNavbarPrincipal.modo-oscuro .nav-link {
     color: gray;
 }
-#elementosNavbarPrincipal.modo-oscuro .nav-item:hover {
+#elementosNavbarPrincipal.modo-oscuro .nav-item:hover,
+#elementosNavbarPrincipal.modo-oscuro .nav-link.active {
     background-color: var(--color-verde-oliva);
+    border-radius: 15px;
 }
-#elementosNavbarPrincipal.modo-oscuro .nav-link:hover {
+#elementosNavbarPrincipal.modo-oscuro .nav-link:hover,
+#elementosNavbarPrincipal.modo-oscuro .nav-link.active  {
     color: white;
 }
 
@@ -185,7 +190,7 @@ body.modo-oscuro {
     margin-left: 50px;
 }
 #iLogoPagina {
-    height: 80px;
+    height: 65px;
     border: 100px;
 }
 
@@ -267,7 +272,7 @@ body.modo-oscuro {
 }
 
 
-/*--- CONFIGURAR ELEMENTOSLOGIN.HTML ---*/
+/*--- CONFIGURAR ELEMENTOS LOGIN ---*/
 .login-container {
     height: 100vh;
     display: flex;

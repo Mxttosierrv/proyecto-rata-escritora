@@ -6,19 +6,19 @@ from .forms import *
 
 # Vistas generales
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'active_page': 'inicio'})
 
-def cuentos(request):
-    return render(request, 'cuentos.html')
+def historias(request):
+    return render(request, 'historias.html', {'active_page': 'historias'})
 
 def podcast(request):
-    return render(request, 'podcast.html')
+    return render(request, 'podcast.html', {'active_page': 'podcast'})
 
 def blog(request):
-    return render(request, 'blog.html')
+    return render(request, 'blog.html', {'active_page': 'blog'})
 
 def sobre_mi(request):
-    return render(request, 'sobre_mi.html')
+    return render(request, 'sobre_mi.html', {'active_page': 'sobre-mi'})
 
 
 # Inicio de sesión y registro de usuario
@@ -42,10 +42,15 @@ def user_register(request):
             )
             login(request, user)
             
-            return redirect('inicio')
+            return redirect('perfil_usuario')
         
     return render(request, 'registration/register.html', data)
 
 def exit(request):
     logout(request)
     return redirect('inicio')
+
+# Vistas de perfil de usuario
+@login_required
+def perfil_usuario(request):
+    return render(request, 'user_profile/perfil_usuario.html')
